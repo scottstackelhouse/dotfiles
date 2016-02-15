@@ -1,0 +1,32 @@
+function ec () { 
+  emacsclient  $1  > /dev/null & 
+}
+
+### symlink version
+
+export MARKPATH=$HOME/.marks
+function jump {
+    cd -P "$MARKPATH/$1" 2> /dev/null || echo "No Such Mark: $1"
+}
+
+function mark {
+    mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+
+function remark {
+    rm "$MARKPATH/$1"
+    mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+
+function unmark {
+    rm -i "$MARKPATH/$1"
+}
+
+function marks {
+    ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- 
+}
+
+#tree function
+function tree {
+    find $1 -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+}

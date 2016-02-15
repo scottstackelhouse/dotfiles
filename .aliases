@@ -1,0 +1,14 @@
+alias aliases='. ~/.aliases'
+alias ec='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -ct'
+alias e=ec
+alias es='/Applications/Emacs.app/Contents/MacOS/Emacs --daemon'
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+alias emacshere='open /Applications/Emacs.app --args $PWD'
+alias ip0='ifconfig en0 | grep -w inet | awk '\''{print $2}'\'''
+alias ip1='ifconfig en1 | grep -w inet | awk '\''{print $2}'\'''
+alias kill-emacs='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c -e '\''(kill-emacs)'\'''
+alias ll='ls -p | grep /'
+alias ls='ls -p'
+alias lsusb='system_profiler SPUSBDataType'
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias vim="echo use emacs"
